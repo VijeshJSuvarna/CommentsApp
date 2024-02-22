@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comments App</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS for the overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+      z-index: 9999; /* Ensure it's above other elements */
+    }
+
+    /* Custom CSS for the selected region */
+    .selection-overlay {
+      position: absolute;
+      border: 2px dashed red;
+      pointer-events: none;
+    }
+
+    .selection-corner {
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    .top-left {
+      top: -5px;
+      left: -5px;
+    }
+
+    .top-right {
+      top: -5px;
+      right: -5px;
+    }
+
+    .bottom-left {
+      bottom: -5px;
+      left: -5px;
+    }
+
+    .bottom-right {
+      bottom: -5px;
+      right: -5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Welcome to Comments App!</h2>
+        <p>This is a demo of the Comments App where you can add comments and capture snippets of the page.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis sit amet lacus porttitor volutpat. Proin euismod ligula sit amet libero laoreet condimentum. Phasellus euismod nibh a suscipit.</p>
+        <p>Nullam interdum libero et mi suscipit, sit amet feugiat nisl dapibus. Sed auctor mi vel dui laoreet, sit amet euismod odio varius. Sed auctor enim vitae lacus lacinia consectetur. Donec id enim eget eros tincidunt fermentum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis sit amet lacus porttitor volutpat. Proin euismod ligula sit amet libero laoreet condimentum. Phasellus euismod nibh a suscipit.</p>
+        <p>Nullam interdum libero et mi suscipit, sit amet feugiat nisl dapibus. Sed auctor mi vel dui laoreet, sit amet euismod odio varius. Sed auctor enim vitae lacus lacinia consectetur. Donec id enim eget eros tincidunt fermentum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis sit amet lacus porttitor volutpat. Proin euismod ligula sit amet libero laoreet condimentum. Phasellus euismod nibh a suscipit.</p>
+        <p>Nullam interdum libero et mi suscipit, sit amet feugiat nisl dapibus. Sed auctor mi vel dui laoreet, sit amet euismod odio varius. Sed auctor enim vitae lacus lacinia consectetur. Donec id enim eget eros tincidunt fermentum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec turpis sit amet lacus porttitor volutpat. Proin euismod ligula sit amet libero laoreet condimentum. Phasellus euismod nibh a suscipit.</p>
+        <p>Nullam interdum libero et mi suscipit, sit amet feugiat nisl dapibus. Sed auctor mi vel dui laoreet, sit amet euismod odio varius. Sed auctor enim vitae lacus lacinia consectetur. Donec id enim eget eros tincidunt fermentum.</p>
+      </div>
+      <div class="col-md-6">
+        <!-- Comments Button -->
+        <button id="commentsButton" class="btn btn-primary">Comments</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay" style="display: none;"></div>
+
+  <!-- Modal for Comments -->
+  <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="commentModalLabel">Add Comment and Snippet</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="snipContainer"></div> <!-- Container to display the captured snippet -->
+          <button id="addSnippetButton" class="btn btn-primary mt-3">Add Snippet</button>
+          <textarea id="commentTextArea" class="form-control mt-3" placeholder="Enter your comments here"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="saveCommentButton" type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include Bootstrap JS and html2canvas -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
